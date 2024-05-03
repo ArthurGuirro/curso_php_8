@@ -1,0 +1,60 @@
+-> include inclui um arquivo
+-> include_once faz a mesma função mas só precisa ser chamado 1x no programa
+-> require tem que ter esse arquivo para o programa rodar
+-> require_once faz a mesma função mas só precisa ser chamado 1x no programa
+->var_dump faz debug de var, classe, func, etc
+-> declare(strict_types = 1) para que as variáveis peguem apenas o tipo que é definida sem tentar converter para outra 
+-> google php lista de funções
+-> strip_tags () limpa as tags html, php, jscritp (para de pegar e o texto fica "cru")
+-> aula 32 fala sobre servidor mas acho que nn precisa
+-> func strtr: procuram pela primeira ocorrência da string que você passar como parâmetro
+
+-> aula 36 controle match está disponível somente no php 8 pra mais, exemplo {
+    $var = match (true){
+        $var2 >= 0 and $var2 <= 5 => 'boa madruga',
+        default => 'bo dia'
+    };
+}
+
+-> ver algoritmo de validação de cpf
+-> php regex online (site de expressão regular) aula 38
+-> métodos mágicos em php é bem util (aula 43)
+-> 'this->' não serve para metodos 'static', apenas 'public function', para 'static' usa o 'self::'
+
+-> instanciar sem ser static{
+    //dentro do public
+    public static function func(string $var)string
+    {
+        $var = this->outrafunc($var);
+    }
+    //no index
+    $var = new Class();
+    echo $var->function();
+}
+
+-> instanciar sendo static{
+    //dentro do public
+    public static function func(string $var)string
+    {
+        $var = self::outrafunc($var);
+    }
+    //no index
+    Classe::func('oi');
+}
+
+-> php packagist > composer (usar essa fita aq)
+-> VER SE A AULA 49 VAI
+-> ver sobre o rewrite e as permissões do arquivo dentro de apache
+-> 52 componentes de rota
+-> a partir da aula 55 é bem complicada, se der ruim provavelmente é ela (criar classe de template no Template.php, transferiu pro Controlador.php responsável por dar instancia no Template e extendeu o Controlador.php para o SiteControlador.php)
+
+-> para criar mais funções no template é só usar a mesma estrutura da primeira{
+    $this->twig->addFunction(
+        new \Twig\TwigFunction('nome_func', function(parametros, se tiver){
+            return o_que_vc_quiser;
+        })
+    )
+}
+
+->aula 64, tratar excessões de diferente forma em localhost ou desenvolvimento, 14:00 do vídeo
+->

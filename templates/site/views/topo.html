@@ -1,0 +1,107 @@
+<style>
+  .header{
+    padding: 2px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+</style>
+
+<header class="header text-bg-dark">
+  <div class="container">
+    
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+          <!-- <li><a class="nav-link px-2 text-white"><h4>Olá, fulando</h4></a></li>  -->
+          <li><a href="{{url()}}" class="nav-link px-2 text-white"><h4>Home</h4></a></li>
+          <li><a href="{{url('./sobre')}}" class="nav-link px-2 text-white"><h4>Sobre</h4></a></li>
+          <li><a href="{{url('./admin/dashboard')}}" class="nav-link px-2 text-white"><h4>Dashboard</h4></a></li>   
+
+          <h4><li class = "nav-item dropdown"style="list-style: none;">
+            <a class = "nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </a>
+            <ul class="dropdown-menu">
+              {% for categoria in categorias %}
+              <li>
+                <a class="dropdown-item" href="{{url('categoria/'~categoria.id)}}">
+                  {{categoria.titulo}}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li></h4>
+        
+        </ul>
+
+        <!---->
+        <style>
+          .buscaPrimeira {
+            width: 200cqi;
+            max-width: 300px;
+            text-align: center;
+            padding: 1vw;
+            position: relative;
+          }
+
+          .buscaResult {
+            width: 100cqi;
+            max-width: 250px;
+            background-color: auto;
+            text-decoration-color: black;
+            text-align: center;
+            padding: 1vw;
+            float: right;
+          } 
+        </style>
+
+        <div class="buscaPrimeira">
+          <form data-url-busca="{{url('buscar')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search"autocomplete="off" name='busca' id='busca' class="form-control form-control-dark text-bg-dark" placeholder="Pesquisar questionários..." aria-label="Search" style="color: #fff;">
+            <!--<input type="submit">-->
+          </form>
+        </div>
+
+        <div class="buscaResult" id="buscaResultado" ></div>
+        <!---->
+        
+        <style>
+            ::-webkit-input-placeholder {
+                /* WebKit browsers */
+                color: #fff !important;
+            }
+            ::-moz-placeholder {
+                /* Mozilla Firefox 19+ */
+                color: #fff !important;
+            }
+            :-ms-input-placeholder {
+                /* Internet Explorer 10+ */
+                color: #fff !important;
+            }
+            :-moz-placeholder {
+                /* Mozilla Firefox 4 to 18 */
+                color: #fff !important;
+            }
+        </style>
+
+        <div class="text-end" style="margin-left: 20px;">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <!--<button type="button" class="btn btn-warning">Sign-up</button>-->
+          <button type="button" class="btn btn-outline-light">Sign-up</button>          
+        </div>
+
+      </div>
+
+<!--
+  Coloca os resultados da busca escrita em baixo mas fica feio
+
+  <div class="buscaResult" id="buscaResultado" ></div>
+-->
+
+    </div>
+</header>

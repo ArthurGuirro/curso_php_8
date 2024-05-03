@@ -1,0 +1,41 @@
+{% extends "dashboard.html" %}
+
+{% block conteudo %} 
+
+<style>
+    .card{
+        display: flex;
+        justify-content: space-between;
+        background: #8e62ce;
+        color: #fff;
+        padding: 2rem;
+        border-radius: 2px;
+    }
+</style>
+
+<div class="card">
+    <div>
+        <h1 class="text-center">Categorias cadastradas</h1>
+        <div class="table-responsive">  
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for categorias in categorias %}
+                <tr>
+                    <th>{{categorias.id}}</th>
+                    <td>{{categorias.titulo}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+
+
+{% endblock %} 

@@ -1,0 +1,45 @@
+{% extends "dashboard.html" %}
+
+{% block conteudo %} 
+
+<style>
+    .card{
+        display: flex;
+        justify-content: space-between;
+        background: #8e62ce;
+        color: #fff;
+        padding: 2rem;
+        border-radius: 2px;
+    }
+</style>
+
+<div class="card">
+    <div>
+        <h1 class="text-center">Formulários criados</h1>
+        <div class="table-responsive">  
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Empresa</th>
+                    <th>Data</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                <tr>
+                    <th>{{post.id}}</th>
+                    <td>{{post.titulo}}</td>
+                    <td>xis</td>
+                    <td>27/01/23</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+
+
+{% endblock %} 

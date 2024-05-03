@@ -1,0 +1,109 @@
+<style>
+  .menu{
+    width: 345px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #8e62ce;
+    z-index: 100;
+    padding-right: 0px;
+  }
+
+  .sidebar-brand{
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    text-align: center;
+    height: 90px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #fff;
+  }
+
+  .sidebar-brand span{
+    display: inline-block;
+    padding-right: 1rem;
+  }
+
+  .sidebar-menu{
+    margin-top: 1rem;
+  }
+
+  .sidebar-menu li{
+    width: 100%;
+    margin-bottom: 1.7rem;
+    padding-left: 1rem;
+  }
+
+  .sidebar-menu a{
+    text-decoration: none;
+    padding-left: 1rem;
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .sidebar-menu a span:first-child{
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .sidebar-menu a.active{
+    background: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #8e62ce;
+    border-radius: 30px 0px 0px 30px;
+  }
+</style>
+
+
+<div class="menu">
+
+  <div class="sidebar-brand">
+    <h2><span></span> Menu adm</h2>
+  </div>
+
+  <div class="sidebar-menu">
+
+    <ul >
+
+      <li>
+        <a href="{{url ('admin/dashboard')}}" class="active"> <span></span> 
+        <span>Dashboard</span></a>
+      </li>
+
+      <li>
+        <a href="" class="active"> <span></span> 
+        <span>Empresas</span></a>
+      </li>
+
+      <li>
+        <a href="" class="active"> <span></span>
+        <span>Usuários</span></a>
+      </li>
+
+      <li>
+        <a href="" class="active"> <span></span>
+          <span>Formulários</span></a>
+      </li>
+
+      <li>
+        <a href="{{url ('admin/categorias/listar')}}" class="active"> <span></span>
+          <span>Categorias</span></a>
+      </li>
+
+      <li>
+        <a href="{{url ('admin/posts/listar')}}" class="active"> <span></span>
+          <span>Formulários criados</span></a>
+      </li>
+      
+    </ul>
+
+  </div>
+
+</div>
+
+
+
+
+
+

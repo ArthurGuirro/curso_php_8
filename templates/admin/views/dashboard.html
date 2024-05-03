@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block corpo %} 
+
+<style>    
+    .main{
+        margin-left: 330px;
+        margin-top: 85px;
+        padding: 2rem 1.5rem;
+        background: #f1f5f9;
+        min-height: calc(100vh - 90px);
+    }
+
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+        margin-top: 1rem;
+    }   
+
+    .card-single{
+        display: flex;
+        justify-content: space-between;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 2px;
+        
+    }
+
+    .card-single div:last-child span {
+        color: #8e62ce;
+        font-size: 3rem;
+    }
+    
+    .card-single div:first-child span {
+        color: gray;       
+    } 
+
+    .card-single:last-child {
+        background: #8e62ce;
+    }
+
+    .card-single:last-child h1,
+    .card-single:last-child div:first-child span,
+    .card-single:last-child div:last-child span {
+        color: #fff;
+    }
+    
+    /*21:33 parte do video que parou*/
+
+</style>
+{% include 'menu.html'  %}
+
+<div class="main">
+
+    {% block conteudo %} 
+    <div class="cards">
+
+        <div class="card-single">
+            <div>
+                <h1>24</h1>
+                <span>Empresas</span>
+            </div>
+            <div>
+                <span class="las la-empresas"></span>
+            </div>
+        </div>
+
+        <div class="card-single">
+            <div>
+                <h1>102</h1>
+                <span>Usuários</span>
+            </div>
+            <div>
+                <span class="las la-users"></span>
+            </div>
+        </div>
+
+        <div class="card-single">
+            <div>
+                <h1>4</h1>
+                <span>Modelos de forms</span>
+            </div>
+            <div>
+                <span class="las la-forms"></span>
+            </div>
+        </div>
+        
+
+    </div>
+    {% endblock %} 
+    
+</div>
+
+
+
+{% endblock %}
+
+

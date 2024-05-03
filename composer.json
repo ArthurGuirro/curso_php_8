@@ -1,0 +1,15 @@
+{
+    "name": "ceounset/aulaphp8",
+    "autoload": {
+        "psr-4": {
+            "sistema\\": "sistema/"
+        },
+        "files": [
+            "sistema/config.php"            
+        ]
+    },
+    "require": {
+        "pecee/simple-router": "^5.4",
+        "twig/twig": "^3.0"
+    }
+}

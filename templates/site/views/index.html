@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="container my-5">
+
+    
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <h1 class="text-center">Questionários</h1>
+                <div class="row">
+                    {% for post in posts %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <!---->
+                            <style>
+                                .card-body a {
+                                    text-decoration: none; /* Remove o sublinhado */
+                                    color: inherit; /* Mantém a cor do texto igual ao restante do conteúdo */
+                                }
+                            </style>
+                            
+                            <div class="card-body">
+                                <!--isso que tá rolando no href é importante-->
+                                <a href="{{url('post/'~post.id)}}">
+                                    <h4 class="card-title">{{post.titulo}}</h4>
+                                    <p class="card-text">{{post.texto}}</p>
+                                </a>
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+        </div>
+
+        
+        <div class="col-lg-3">
+            {% include 'sidebar.html' %}
+        </div>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
