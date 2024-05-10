@@ -1,0 +1,53 @@
+{% extends "dashboard.html" %}
+
+{% block conteudo %} 
+
+<style>
+    .card{
+        display: flex;
+        justify-content: space-between;
+        background: #8e62ce;
+        color: #fff;
+        padding: 2rem;
+        border-radius: 2px;
+    }
+</style>
+
+<div class="card">
+
+    <div>
+        <h1 class="text-center">Formulários Categorias</h1>
+        <div class="table-responsive">  
+            <form action="{% if categoria.id %}  {{url('admin/categorias/editar/'~categoria.id)}} {% else %}  {{url('admin/categorias/cadastrar/')}} {% endif %}" method="post">
+
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input type="text" name="titulo" id="titulo" value="{{categoria.titulo}}" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="texto" class="form-label">Texto</label>
+                    <textarea name="texto" id="texto" class="form-control" rows="3">{{categoria.texto}}</textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <select class="form-select" name="status">
+                        <option value=0 {% if categoria.status == 0 %} selected {% endif %}>Inativo</option>
+                        <option value=1 {% if categoria.status == 1 %} selected {% endif %}>Ativo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-primary" value="{% if categoria.id %} Atualizar {% else %} Cadastrar {% endif %}">
+                    <a href="{{url('admin/categorias/listar')}}" class="btn btn-primary">Voltar</a>
+                </div>
+
+            </form>
+            
+
+        </div>
+    </div>
+</div>    
+
+
+{% endblock %} 

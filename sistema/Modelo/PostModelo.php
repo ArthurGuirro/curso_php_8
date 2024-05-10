@@ -28,6 +28,40 @@ class PostModelo
         $resultado = $stmt->fetchAll();
         return $resultado;
     }
+
+    public function armazenar(array $dados):void
+    {
+        $query = "insert into post (categoria_id, titulo, texto, status) values (?,?,?,?)";
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute([$dados['categoria_id'],$dados['titulo'], $dados['texto'], $dados['status']]);
+    }
+    
+    public function atualizar(array $dados, int $id):void
+    {
+        
+        $query = "update post set titulo = ?, texto = ?, status = ?, categoria_id = ? where id = {$id}";
+
+        $stmt = Conexao::getInstancia()->prepare($query);
+
+        $stmt->execute([$dados['titulo'], $dados['texto'], $dados['status'], $dados['categoria_id']]);
+        
+    }
+
+    public function excluir (int $id):void
+    {
+        $query = "delete from post where id = {$id}";
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute();   
+    }
+
+    public function total (?string $termo = null):int
+    {
+        $termo = ($termo ? "where {$termo}":"") ;
+        $query = "select * from post {$termo}";
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute();   
+        return $stmt->rowCount();
+    }
 /*------------------------------------------------------
 Pode ser feito dessa forma também
     public function ler(int $id = null):array
@@ -48,6 +82,14 @@ foreach ($posts as $post)
 {
     echo $post->titulo.'<br>';
 }
+
+--jeito que não deu bom de armazenar--
+public function armazenar(array $dados):void
+    {
+        $query = "insert into post (categoria_id, titulo, texto, status) values (:categoria_id,:titulo,:texto,:status)";
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute($dados);
+    }
 ------------------------------------------------------*/
 
 }

@@ -29,5 +29,42 @@ class CategoriaModelo
         return $resultado;
     }
 
+    public function armazenar(array $dados):void
+    {
+        $query = "insert into categorias (titulo, texto, status) values (?,?,?)";
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute([$dados['titulo'], $dados['texto'], $dados['status']]);
+    }
+
+    public function atualizar(array $dados, int $id):void
+    {
+        
+        $query = "update categorias set titulo = ?, texto = ?, status = ? where id = {$id}";
+
+        $stmt = Conexao::getInstancia()->prepare($query);
+
+        $stmt->execute([$dados['titulo'], $dados['texto'], $dados['status']]);
+        
+    }
+
+    public function excluir(int $id):void
+    {
+        
+        $query = "delete from categorias where id = {$id}";
+
+        $stmt = Conexao::getInstancia()->prepare($query);
+
+        $stmt->execute();
+    }
+
+    public function total (?string $termo = null):int
+    {
+        $termo = ($termo ? "where {$termo}":"") ;
+        $query = "select * from categorias {$termo}";
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute();   
+        return $stmt->rowCount();
+    }
+
 }
 ?>

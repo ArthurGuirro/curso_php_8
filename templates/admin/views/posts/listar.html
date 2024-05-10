@@ -14,8 +14,18 @@
 </style>
 
 <div class="card">
+    
+    <div class="card-unique">
+        <p>Total de formulários: {{total.total}}</p>
+        <p>Ativos - {{total.ativos}}</p>
+        <p>Inativos - {{total.inativos}}</p>
+    </div>    
+
     <div>
         <h1 class="text-center">Formulários criados</h1>
+        <div>
+            <a href="{{url('admin/posts/cadastrar')}}" class="btn btn-primary">Cadastrar</a>
+        </div>
         <div class="table-responsive">  
             <table class="table">
                 <thead>
@@ -23,7 +33,10 @@
                     <th>Id</th>
                     <th>Título</th>
                     <th>Empresa</th>
-                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Data de criação</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,7 +45,14 @@
                     <th>{{post.id}}</th>
                     <td>{{post.titulo}}</td>
                     <td>xis</td>
-                    <td>27/01/23</td>
+                    <td>{{post.status}}</td>
+                    <td>{{post.created_at}}</td>
+                    <td>
+                        <a href="{{url('admin/posts/editar/'~post.id)}}" class="btn btn-primary">Editar</a>
+                    </td>
+                    <td>
+                        <a href="{{url('admin/posts/excluir/'~post.id)}}" class="btn btn-primary">Excluir</a>
+                    </td>
                 </tr>
                 {% endfor %}
                 </tbody>

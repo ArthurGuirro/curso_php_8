@@ -57,4 +57,10 @@
 }
 
 ->aula 64, tratar excessões de diferente forma em localhost ou desenvolvimento, 14:00 do vídeo
+-> placeholder="name@example.com" (dentro de um formulário, isso retorna o que foi cadastrado, aula 84)-aula importante
+->aula 87, lógica de usar if para editar, ocultar ou selecionar algo
 ->
+
+
+
+infos: ctrl+; comenta
